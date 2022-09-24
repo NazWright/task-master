@@ -1,0 +1,15 @@
+{
+  "name": "naz-task-management-intake",
+  "version": "1.0.0",
+  "description": "Task management intake service with CRUD operations for task management",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://git-codecommit.us-east-1.amazonaws.com/v1/repos/naz-task-management-intake"
+  },
+  "author": "Nazere Wright",
+  "license": "ISC"
+}
