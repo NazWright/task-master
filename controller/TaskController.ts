@@ -11,7 +11,7 @@ export class TaskController extends Controller {
   }
 
   public getTasksRoute(): void {
-    appRouter.getApp().get("/task", function (req, res) {
+    appRouter.getRouter().get("/task", function (req, res) {
       res.send("Hello");
     });
   }

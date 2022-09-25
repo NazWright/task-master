@@ -7,13 +7,17 @@ export abstract class Controller {
   constructor(appRouter: AppRouter, endpointPrefix?: string) {
     this.endpointPrefix = endpointPrefix;
     this.appRouter = appRouter;
-    this.configure();
+    // calling super() in subclass defines a route prefix for the controller
     this.registerRoutes();
+    this.configure();
   }
 
   public configure() {
     // all api routes will have this prefix if it is defined
-    //this.endpointPrefix && this.appRouter.getApp().use(this.endpointPrefix);
+    this.endpointPrefix &&
+      this.appRouter
+        .getApp()
+        .use(this.endpointPrefix, this.appRouter.getRouter());
   }
 
   //   must have a function for adding routes to router
