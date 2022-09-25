@@ -1,5 +1,4 @@
 import { AppRouter } from "./AppRouter";
-
 export abstract class Controller {
   private endpointPrefix?: string;
 

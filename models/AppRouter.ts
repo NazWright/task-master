@@ -1,13 +1,15 @@
 import { Application } from "express";
 import { TaskManagementRoute } from "./TaskManagementRoute";
+import express, { Router } from "express";
 
 export class AppRouter {
   private PORT: number;
 
-  private app: Application;
+  private app: Application = express();
 
-  constructor(app: Application, PORT?: number) {
-    this.app = app;
+  private router: Router = express.Router();
+
+  constructor(PORT?: number) {
     this.PORT = PORT || 5003;
     this.configure();
   }
@@ -28,5 +30,9 @@ export class AppRouter {
 
   public getPort(): number {
     return this.PORT;
+  }
+
+  public getRouter(): Router {
+    return this.router;
   }
 }
