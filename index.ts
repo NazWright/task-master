@@ -1,12 +1,14 @@
 import express = require("express");
-import { TaskManagementRoute } from "./models/TaskManagementRoute";
+import { AppRouter } from "./AppRouter";
 
 const app = express();
 
-app.get("/", function ({ req, res }: TaskManagementRoute) {
-  res.send("Hello");
-});
+const PORT: number = 5004;
 
-const PORT: number = 5003;
+const appRouter = new AppRouter(app, PORT);
 
-app.listen(PORT);
+function applicationStartHandler() {
+  console.log("Listening on PORT: ", appRouter.getPort());
+}
+
+appRouter.run(applicationStartHandler);
