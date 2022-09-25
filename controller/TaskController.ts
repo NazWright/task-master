@@ -1,16 +1,18 @@
-// import express = require("express");
+import { Controller } from "../models/Controller";
+import { appRouter } from "../app";
 
-// class TaskController {
-//   endpointPrefix: string;
+export class TaskController extends Controller {
+  constructor() {
+    super(appRouter, "/tasks");
+  }
 
-//   app: express.Application;
+  public registerRoutes(): void {
+    this.getTasksRoute();
+  }
 
-//   constructor(endpointPrefix: string, app: express.Application) {
-//     this.endpointPrefix = endpointPrefix;
-//     this.app = app;
-//   }
-// }
-
-// const taskController: TaskController = new TaskController("/tasks", app);
-
-// export default taskController;
+  public getTasksRoute(): void {
+    appRouter.getApp().get("/task", function (req, res) {
+      res.send("Hello");
+    });
+  }
+}

@@ -1,5 +1,5 @@
 import { Application } from "express";
-import { TaskManagementRoute } from "./models/TaskManagementRoute";
+import { TaskManagementRoute } from "./TaskManagementRoute";
 
 export class AppRouter {
   private PORT: number;
