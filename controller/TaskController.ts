@@ -1,5 +1,6 @@
 import { Controller } from "../models/Controller";
 import { appRouter } from "../app";
+import { TaskService } from "../service/TaskService";
 
 export class TaskController extends Controller {
   constructor() {
@@ -12,7 +13,8 @@ export class TaskController extends Controller {
 
   public getTasksRoute(): void {
     appRouter.getRouter().get("/task", function (req, res) {
-      res.send("Hello");
+      const response = new TaskService().getTask("1");
+      res.status(200).send(response);
     });
   }
 }
